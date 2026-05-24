@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DiagnosisController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DiseaseController;
+use App\Http\Controllers\Admin\SymptomController;
+use App\Http\Controllers\Admin\KnowledgeBaseController;
+use App\Http\Controllers\Admin\DiagnosisReportController;
+
+// ── Public / User routes (Bizland template) ───────────────────────────────────
+Route::get('/', [DiagnosisController::class, 'index'])->name('home');
+Route::get('/about', [DiagnosisController::class, 'about'])->name('about');
+Route::get('/diseases', [DiagnosisController::class, 'diseases'])->name('diseases');
+Route::get('/contact', [DiagnosisController::class, 'contact'])->name('contact');
+
+Route::prefix('konsultasi')->name('diagnosis.')->group(function () {
+    Route::get('/', [DiagnosisController::class, 'create'])->name('create');
+    Route::post('/', [DiagnosisController::class, 'store'])->name('store');
+    Route::get('/hasil/{diagnosis}', [DiagnosisController::class, 'result'])->name('result');
+    Route::get('/cetak/{diagnosis}', [DiagnosisController::class, 'print'])->name('print');
+});
+
+// ── Auth routes ───────────────────────────────────────────────────────────────
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// ── Admin routes (Tabler template) ────────────────────────────────────────────
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('diseases', DiseaseController::class)->except(['show']);
+    Route::resource('symptoms', SymptomController::class)->except(['show']);
+
+    Route::get('knowledge', [KnowledgeBaseController::class, 'index'])->name('knowledge.index');
+    Route::post('knowledge', [KnowledgeBaseController::class, 'update'])->name('knowledge.update');
+
+    Route::get('diagnoses', [DiagnosisReportController::class, 'index'])->name('diagnoses.index');
+    Route::get('diagnoses/{diagnosis}', [DiagnosisReportController::class, 'show'])->name('diagnoses.show');
+    Route::delete('diagnoses/{diagnosis}', [DiagnosisReportController::class, 'destroy'])->name('diagnoses.destroy');
+});
