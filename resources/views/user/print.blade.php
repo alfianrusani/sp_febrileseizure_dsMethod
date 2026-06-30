@@ -10,6 +10,9 @@
     .section-label { font-weight: 700; color: #106eea; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; border-bottom: 2px solid #106eea; padding-bottom: 4px; margin-bottom: 12px; }
     table td { padding: 6px 10px; }
     .result-box { border: 2px solid #106eea; border-radius: 8px; padding: 16px; background: #e8f1fd; }
+    .result-box.danger { border: 2px solid #dc3545; background: #f8d7da; }
+    .result-box.danger h5 { color: #dc3545 !important; }
+    .result-box.danger .percentage { color: #dc3545 !important; }
     @media print {
       .no-print { display: none !important; }
       body { margin: 0; }
@@ -69,15 +72,15 @@
     <div class="mb-4">
       <div class="section-label">Hasil Diagnosa</div>
       @if($diagnosis->disease)
-      <div class="result-box">
+      <div class="result-box{{ $diagnosis->disease->code === 'P2' ? ' danger' : '' }}">
         <div class="d-flex justify-content-between align-items-center">
           <div>
             <div style="font-size:11px;color:#666;text-transform:uppercase;letter-spacing:1px">Didiagnosa dengan</div>
-            <h5 class="mb-0 mt-1" style="color:#106eea;font-weight:700">{{ $diagnosis->disease->name }}</h5>
+            <h5 class="mb-0 mt-1" style="color:{{ $diagnosis->disease->code === 'P2' ? '#dc3545' : '#106eea' }};font-weight:700">{{ $diagnosis->disease->name }}</h5>
             <small class="text-muted">Kode: {{ $diagnosis->disease->code }}</small>
           </div>
           <div class="text-center">
-            <div style="font-size:32px;font-weight:800;color:#106eea">{{ round($diagnosis->belief_value * 100, 2) }}%</div>
+            <div style="font-size:32px;font-weight:800;color:{{ $diagnosis->disease->code === 'P2' ? '#dc3545' : '#106eea' }}">{{ round($diagnosis->belief_value * 100, 2) }}%</div>
             <small class="text-muted">Tingkat Keyakinan</small>
           </div>
         </div>

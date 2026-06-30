@@ -127,7 +127,7 @@
                                 <div class="col-lg-6 symptom-item">
                                     <div class="symptom-card p-3 rounded-3 border border-2 h-100 position-relative"
                                         style="cursor:pointer;transition:.2s;border-color:#dee2e6!important"
-                                        onclick="toggleSymptom(event, this, {{ $symptom->id }})">
+                                        onclick="toggleSymptom( {{ $symptom->id }})">
                                         <div class="form-check mb-0">
                                             <input class="form-check-input symptom-check" type="checkbox"
                                                 name="symptom_ids[]" value="{{ $symptom->id }}"
