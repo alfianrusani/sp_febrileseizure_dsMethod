@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Symptom;
 use App\Models\Diagnosis;
+use App\Models\Article;
 use App\Services\DempsterShaferService;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -92,5 +93,18 @@ class DiagnosisController extends Controller
     public function contact()
     {
         return view('user.contact');
+    }
+
+    /** List articles page */
+    public function articles()
+    {
+        $articles = Article::latest()->paginate(6);
+        return view('user.articles', compact('articles'));
+    }
+
+    /** Single article page */
+    public function article(Article $article)
+    {
+        return view('user.article', compact('article'));
     }
 }
