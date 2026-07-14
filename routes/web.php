@@ -51,9 +51,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::delete('diagnoses/{diagnosis}', [DiagnosisReportController::class, 'destroy'])->name('diagnoses.destroy');
 
     // 5 Rute Baru untuk Memenuhi Syarat UAS
-    Route::resource('patients', PatientController::class)->except(['show']);
     Route::resource('articles', ArticleController::class)->except(['show']);
     Route::resource('hospitals', HospitalController::class)->except(['show']);
-    Route::resource('treatments', TreatmentController::class)->except(['show']);
     Route::resource('feedbacks', FeedbackController::class)->except(['show']);
 });

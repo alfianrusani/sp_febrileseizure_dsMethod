@@ -117,5 +117,11 @@ class DatabaseSeeder extends Seeder
                 'symptom_id'  => $symptomModels[$code]->id,
             ]);
         }
+
+        // Run additional seeders
+        $this->call([
+            ArticleSeeder::class,
+            HospitalSeeder::class,
+        ]);
     }
 }
