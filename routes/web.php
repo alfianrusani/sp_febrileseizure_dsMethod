@@ -8,6 +8,11 @@ use App\Http\Controllers\Admin\DiseaseController;
 use App\Http\Controllers\Admin\SymptomController;
 use App\Http\Controllers\Admin\KnowledgeBaseController;
 use App\Http\Controllers\Admin\DiagnosisReportController;
+use App\Http\Controllers\Admin\PatientController;
+use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\HospitalController;
+use App\Http\Controllers\Admin\TreatmentController;
+use App\Http\Controllers\Admin\FeedbackController;
 
 // ── Public / User routes (Bizland template) ───────────────────────────────────
 Route::get('/', [DiagnosisController::class, 'index'])->name('home');
@@ -40,4 +45,11 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('diagnoses', [DiagnosisReportController::class, 'index'])->name('diagnoses.index');
     Route::get('diagnoses/{diagnosis}', [DiagnosisReportController::class, 'show'])->name('diagnoses.show');
     Route::delete('diagnoses/{diagnosis}', [DiagnosisReportController::class, 'destroy'])->name('diagnoses.destroy');
+
+    // 5 Rute Baru untuk Memenuhi Syarat UAS
+    Route::resource('patients', PatientController::class)->except(['show']);
+    Route::resource('articles', ArticleController::class)->except(['show']);
+    Route::resource('hospitals', HospitalController::class)->except(['show']);
+    Route::resource('treatments', TreatmentController::class)->except(['show']);
+    Route::resource('feedbacks', FeedbackController::class)->except(['show']);
 });
