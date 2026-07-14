@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Symptom;
 use App\Models\Diagnosis;
 use App\Models\Article;
+use App\Models\Hospital;
 use App\Services\DempsterShaferService;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -106,5 +107,23 @@ class DiagnosisController extends Controller
     public function article(Article $article)
     {
         return view('user.article', compact('article'));
+    }
+
+    /** List hospitals with search */
+    public function hospitals(Request $request)
+    {
+        $q = $request->query('q');
+        $hospitals = Hospital::when($q, function ($query, $q) {
+            $query->where('name', 'like', "%{$q}%")
+                  ->orWhere('address', 'like', "%{$q}%");
+        })->orderBy('name')->paginate(12)->withQueryString();
+
+        return view('user.hospitals', compact('hospitals', 'q'));
+    }
+
+    /** Single hospital detail */
+    public function hospital(Hospital $hospital)
+    {
+        return view('user.hospital', compact('hospital'));
     }
 }

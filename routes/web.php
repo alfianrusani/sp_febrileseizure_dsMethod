@@ -19,6 +19,8 @@ Route::get('/', [DiagnosisController::class, 'index'])->name('home');
 Route::get('/about', [DiagnosisController::class, 'about'])->name('about');
 Route::get('/articles', [DiagnosisController::class, 'articles'])->name('articles.index');
 Route::get('/articles/{article}', [DiagnosisController::class, 'article'])->name('articles.show');
+Route::get('/hospitals', [DiagnosisController::class, 'hospitals'])->name('hospitals.index');
+Route::get('/hospitals/{hospital}', [DiagnosisController::class, 'hospital'])->name('hospitals.show');
 Route::get('/diseases', [DiagnosisController::class, 'diseases'])->name('diseases');
 Route::get('/contact', [DiagnosisController::class, 'contact'])->name('contact');
 

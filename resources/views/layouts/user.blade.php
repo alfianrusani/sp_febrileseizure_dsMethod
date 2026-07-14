@@ -387,6 +387,8 @@
                                 href="{{ route('about') }}">Tentang</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->routeIs('articles.*') ? 'active' : '' }}"
                                 href="{{ route('articles.index') }}">Artikel</a></li>
+                        <li class="nav-item"><a class="nav-link {{ request()->routeIs('hospitals.*') ? 'active' : '' }}"
+                                href="{{ route('hospitals.index') }}">Rumah Sakit</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->routeIs('diseases') ? 'active' : '' }}"
                                 href="{{ route('diseases') }}">Penyakit</a></li>
                         <li class="nav-item"><a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
