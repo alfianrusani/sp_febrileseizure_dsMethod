@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('treatments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('disease_id')->constrained('diseases')->onDelete('cascade');
+            $table->string('action_title');
+            $table->text('description');
             $table->timestamps();
         });
     }
