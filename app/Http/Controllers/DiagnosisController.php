@@ -6,6 +6,7 @@ use App\Models\Symptom;
 use App\Models\Diagnosis;
 use App\Models\Article;
 use App\Models\Hospital;
+use App\Models\Feedback;
 use App\Services\DempsterShaferService;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -76,6 +77,24 @@ class DiagnosisController extends Controller
         $diagnosis->load('disease');
         $selectedSymptoms = Symptom::whereIn('id', $diagnosis->selected_symptoms)->get();
         return view('user.print', compact('diagnosis', 'selectedSymptoms'));
+    }
+
+    /** Store feedback for the diagnosis patient */
+    public function storeFeedback(Request $request, Diagnosis $diagnosis)
+    {
+        $request->validate([
+            'comments' => 'required|string|max:1000',
+        ]);
+
+        Feedback::create([
+            'diagnosis_id' => $diagnosis->id,
+            'patient_name' => $diagnosis->patient_name,
+            'rating'       => 5,
+            'comments'     => $request->comments,
+        ]);
+
+        return redirect()->route('diagnosis.result', $diagnosis->id)
+            ->with('feedback_success', true);
     }
 
     /** About page */

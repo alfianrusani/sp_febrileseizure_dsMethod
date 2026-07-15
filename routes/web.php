@@ -28,6 +28,7 @@ Route::prefix('konsultasi')->name('diagnosis.')->group(function () {
     Route::get('/', [DiagnosisController::class, 'create'])->name('create');
     Route::post('/', [DiagnosisController::class, 'store'])->name('store');
     Route::get('/hasil/{diagnosis}', [DiagnosisController::class, 'result'])->name('result');
+    Route::post('/hasil/{diagnosis}/feedback', [DiagnosisController::class, 'storeFeedback'])->name('feedback.store');
     Route::get('/cetak/{diagnosis}', [DiagnosisController::class, 'print'])->name('print');
 });
 

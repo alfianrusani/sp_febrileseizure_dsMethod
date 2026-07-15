@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
-            $table->string('patient_name'); // Bisa dikaitkan ke tabel patients jika mau lebih kompleks, tapi string cukup untuk simpelnya
-            $table->tinyInteger('rating'); // Skala 1-5
+            $table->foreignId('diagnosis_id')->nullable()->constrained('diagnoses')->nullOnDelete();
+            $table->string('patient_name');
+            $table->tinyInteger('rating')->default(5);
             $table->text('comments')->nullable();
             $table->timestamps();
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('feedbacks');
     }
 };
