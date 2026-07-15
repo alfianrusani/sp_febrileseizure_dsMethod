@@ -54,6 +54,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     // 5 Rute Baru untuk Memenuhi Syarat UAS
     Route::resource('articles', ArticleController::class)->except(['show']);
     Route::resource('hospitals', HospitalController::class)->except(['show']);
+    Route::resource('treatments', TreatmentController::class)->except(['show']);
     Route::resource('feedbacks', FeedbackController::class)->except(['show']);
     Route::get('patients', [PatientController::class, 'index'])->name('patients.index');
     Route::get('patients/{patient}', [PatientController::class, 'show'])->name('patients.show');

@@ -64,14 +64,31 @@
                                 <p style="color:#555;font-size:14px;line-height:1.8">{{ $diagnosis->disease->description }}
                                 </p>
 
-                                @if ($diagnosis->disease->treatment)
+                                @php
+                                    $treatment = $diagnosis->disease
+                                        ?->treatments()
+                                        ->where('disease_id', $diagnosis->disease_id)
+                                        ->latest()
+                                        ->first();
+                                @endphp
+                                @if ($treatment)
                                     <hr>
                                     <h6
                                         style="font-family:'Raleway',sans-serif;font-weight:700;color:#1a1a2e;margin-bottom:12px">
                                         <i class="bi bi-heart-pulse text-danger me-2"></i>Rekomendasi Penanganan
                                     </h6>
-                                    <div style="font-size:14px;color:#555;line-height:1.8;white-space:pre-line">
-                                        {{ $diagnosis->disease->treatment }}</div>
+
+                                    <div class="mb-3">
+                                        <div class="fw-semibold text-dark">Penanganan Pertama</div>
+                                        <div style="font-size:14px; color:#555; line-height:1.8; white-space:pre-line margin-top:-10px;">
+                                            {{ $treatment->first_step_handling }}</div>
+                                    </div>
+
+                                    <div>
+                                        <div class="fw-semibold text-dark">Obat Penanganan</div>
+                                        <div style="font-size:14px; color:#555; line-height:1.8; white-space:pre-line margin-top:-10px;">
+                                            {{ $treatment->medicine }}</div>
+                                    </div>
                                 @endif
                             </div>
                         </div>

@@ -157,6 +157,14 @@
                                 </a>
                             </li>
 
+                            {{-- Treatments --}}
+                            <li class="nav-item {{ request()->routeIs('admin.treatments.*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.treatments.index') }}">
+                                    <span class="nav-link-icon"><i class="bi bi-clipboard-plus"></i></span>
+                                    <span class="nav-link-title">Data Treatment</span>
+                                </a>
+                            </li>
+
                             <li class="nav-item mt-2">
                                 <span class="nav-link-title text-uppercase fw-bold"
                                     style="font-size:10px;color:rgba(255,255,255,.4);padding:8px 16px;display:block">Laporan</span>
@@ -264,7 +272,20 @@
                     @endif
                     @if (session('error'))
                         <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                            <i class="bi bi-exclamation-circle me-2"></i>{{ session('error') }}
+                            <div class="d-flex align-items-start gap-2">
+                                <i class="bi bi-exclamation-triangle-fill mt-1"></i>
+                                <div>{{ session('error') }}</div>
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    @endif
+
+                    @if (session('warning'))
+                        <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+                            <div class="d-flex align-items-start gap-2">
+                                <i class="bi bi-exclamation-circle-fill mt-1"></i>
+                                <div>{{ session('warning') }}</div>
+                            </div>
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         </div>
                     @endif

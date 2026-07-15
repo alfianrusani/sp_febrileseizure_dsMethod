@@ -122,6 +122,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ArticleSeeder::class,
             HospitalSeeder::class,
+            TreatmentSeeder::class,
         ]);
     }
 }

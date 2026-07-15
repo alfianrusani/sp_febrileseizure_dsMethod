@@ -40,7 +40,7 @@
           <div style="background: linear-gradient(135deg,#106eea,#0d58c0);border-radius:20px;padding:40px;text-align:center;color:#fff;box-shadow:0 20px 60px rgba(16,110,234,.3)">
             <i class="bi bi-heart-pulse-fill" style="font-size:80px;opacity:.9"></i>
             <h3 class="mt-3 mb-2" style="font-family:'Raleway',sans-serif;font-weight:700">Expert System</h3>
-            <p style="opacity:.8;font-size:14px">Febrile Seizure Diagnosis</p>
+            <h3 class="mt-3 mb-2" style="font-family:'Raleway',sans-serif;font-weight:700">Febrile Seizure Diagnosis</h3>
             <div class="row g-2 mt-3">
               <div class="col-6">
                 <div style="background:rgba(255,255,255,.15);border-radius:10px;padding:12px">
