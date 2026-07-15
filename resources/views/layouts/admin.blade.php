@@ -170,6 +170,14 @@
                                 </a>
                             </li>
 
+                            {{-- Patients --}}
+                            <li class="nav-item {{ request()->routeIs('admin.patients.*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.patients.index') }}">
+                                    <span class="nav-link-icon"><i class="bi bi-people"></i></span>
+                                    <span class="nav-link-title">Data Pasien</span>
+                                </a>
+                            </li>
+
                             <li class="nav-item mt-auto pt-4">
                                 <a class="nav-link" href="{{ route('home') }}" target="_blank">
                                     <span class="nav-link-icon"><i class="bi bi-globe"></i></span>

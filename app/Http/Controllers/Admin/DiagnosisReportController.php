@@ -33,7 +33,7 @@ class DiagnosisReportController extends Controller
 
     public function show(Diagnosis $diagnosis)
     {
-        $diagnosis->load('disease');
+        $diagnosis->load(['disease', 'feedbacks']);
         $selectedSymptoms = Symptom::whereIn('id', $diagnosis->selected_symptoms)->get();
         return view('admin.diagnoses.show', compact('diagnosis', 'selectedSymptoms'));
     }

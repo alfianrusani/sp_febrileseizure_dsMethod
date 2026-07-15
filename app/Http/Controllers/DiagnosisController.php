@@ -7,8 +7,10 @@ use App\Models\Diagnosis;
 use App\Models\Article;
 use App\Models\Hospital;
 use App\Models\Feedback;
+use App\Models\Patient;
 use App\Services\DempsterShaferService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Carbon\Carbon;
 
 class DiagnosisController extends Controller
@@ -42,8 +44,15 @@ class DiagnosisController extends Controller
             'symptom_ids.*' => 'exists:symptoms,id',
         ]);
 
-        $birthDate  = Carbon::parse($request->birth_date);
-        $ageMonths  = (int) $birthDate->diffInMonths(now());
+        $birthDate = Carbon::parse($request->birth_date);
+        $today = Carbon::now();
+
+        if ($birthDate->greaterThan($today)) {
+            $birthDate = $today;
+        }
+
+        $ageMonths = (int) $birthDate->diffInMonths($today);
+        $genderValue = $request->gender === 'Laki-laki' ? 'L' : 'P';
 
         $result = $this->ds->diagnose($request->symptom_ids);
 
@@ -59,6 +68,26 @@ class DiagnosisController extends Controller
             'belief_value'      => $result['belief'],
             'selected_symptoms' => $request->symptom_ids,
         ]);
+
+        $patientData = [
+            'age' => $ageMonths,
+            'gender' => $genderValue,
+            'diagnosis' => $result['disease']?->name ?? '-',
+            'belief_value' => $result['belief'],
+        ];
+
+        if (Schema::hasColumn('patients', 'phone')) {
+            $patientData['phone'] = $request->phone;
+        }
+
+        if (Schema::hasColumn('patients', 'address')) {
+            $patientData['address'] = $request->address;
+        }
+
+        Patient::firstOrCreate(
+            ['name' => $request->patient_name],
+            $patientData
+        )->update($patientData);
 
         return redirect()->route('diagnosis.result', $diagnosis->id);
     }

@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->integer('age'); // Usia dalam bulan atau tahun
             $table->enum('gender', ['L', 'P']);
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->string('diagnosis')->nullable();
+            $table->decimal('belief_value', 5, 4)->nullable();
             $table->timestamps();
         });
     }
