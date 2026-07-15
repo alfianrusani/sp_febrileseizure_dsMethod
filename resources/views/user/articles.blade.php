@@ -25,8 +25,11 @@
                 @forelse($articles as $article)
                     <div class="col-lg-4 col-md-6">
                         <div class="card feature-card">
-                            @if (!empty($article->image))
-                                <img src="{{ asset('storage/' . $article->image) }}" class="card-img-top"
+                            @php
+                                $articleImage = $article->thumbnail ?? $article->image;
+                            @endphp
+                            @if (!empty($articleImage))
+                                <img src="{{ asset('storage/' . $articleImage) }}" class="card-img-top"
                                     style="border-radius:12px;object-fit:cover;height:180px" alt="{{ $article->title }}">
                             @endif
                             <div class="card-body">

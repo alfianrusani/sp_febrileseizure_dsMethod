@@ -20,8 +20,11 @@
             <div class="row g-5">
                 <div class="col-lg-8">
                     <div class="card border-0 shadow" style="border-radius:12px;padding:20px">
-                        @if (!empty($article->image))
-                            <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
+                        @php
+                            $articleImage = $article->thumbnail ?? $article->image;
+                        @endphp
+                        @if (!empty($articleImage))
+                            <img src="{{ asset('storage/' . $articleImage) }}" alt="{{ $article->title }}"
                                 style="width:100%;border-radius:8px;margin-bottom:16px;object-fit:cover;max-height:360px">
                         @endif
                         <h2 style="font-family:'Raleway',sans-serif;font-weight:800;color:#1a1a2e">{{ $article->title }}

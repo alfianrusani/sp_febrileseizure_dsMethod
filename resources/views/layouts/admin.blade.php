@@ -170,6 +170,22 @@
                                 </a>
                             </li>
 
+                            {{-- Articles --}}
+                            <li class="nav-item {{ request()->routeIs('admin.articles.*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.articles.index') }}">
+                                    <span class="nav-link-icon"><i class="bi bi-journal-text"></i></span>
+                                    <span class="nav-link-title">Data Artikel</span>
+                                </a>
+                            </li>
+
+                            {{-- Hospitals --}}
+                            <li class="nav-item {{ request()->routeIs('admin.hospitals.*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.hospitals.index') }}">
+                                    <span class="nav-link-icon"><i class="bi bi-hospital"></i></span>
+                                    <span class="nav-link-title">Data Hospitals</span>
+                                </a>
+                            </li>
+
                             {{-- Patients --}}
                             <li class="nav-item {{ request()->routeIs('admin.patients.*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('admin.patients.index') }}">
