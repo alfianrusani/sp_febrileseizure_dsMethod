@@ -1,12 +1,13 @@
 # Febrile Seizure Expert System
-**Sistem Pakar Mendiagnosa Penyakit Febrile Seizure pada Anak**
-**Metode: Dempster-Shafer | Stack: Laravel 13 + PHP 8.3 | Template: Bizland (User) + Tabler (Admin)**
+
+**Sistem Pakar Mendiagnosa Penyakit Febrile Seizure pada Anak**  
+**Metode:** Dempster-Shafer | **Stack:** Laravel (PHP 8.3) + SQLite | **Template:** Bizland (User) + Tabler (Admin)
 
 ---
 
 ## Struktur Project
 
-```
+```text
 febrile-seizure/
 ├── app/
 │   ├── Http/
@@ -52,8 +53,6 @@ febrile-seizure/
 │   └── auth/login.blade.php
 ├── routes/web.php
 └── bootstrap/app.php
-```
-
 ---
 
 ## Setup di Laravel Herd (Langkah-langkah)
@@ -101,29 +100,18 @@ Edit `.env`:
 
 ```dotenv
 APP_NAME="Febrile Seizure Expert"
-APP_URL=http://febrile-seizure.test
+APP_URL=[http://febrile-seizure.test](http://febrile-seizure.test)
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=febrile_seizure
-DB_USERNAME=root
-DB_PASSWORD=
+DB_CONNECTION=sqlite
+# Database SQLite otomatis terbaca di folder database/database.sqlite
 ```
 
-### 4. Buat database
-
-Buka TablePlus / phpMyAdmin / MySQL CLI:
-
-```sql
-CREATE DATABASE febrile_seizure CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-
-### 5. Jalankan migrasi dan seeder
+### 4. Jalankan migrasi dan seeder
 
 ```bash
 php artisan migrate --seed
 ```
+Jika muncul pertanyaan "Database file does not exist. Would you like to create it?", ketik yes
 
 Ini akan otomatis membuat:
 - ✅ 2 penyakit (P1: Kejang Demam Sederhana, P2: Kejang Demam Kompleks)
