@@ -13,6 +13,19 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\HospitalController;
 use App\Http\Controllers\Admin\TreatmentController;
 use App\Http\Controllers\Admin\FeedbackController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/setup-db', function () {
+    try {
+        Artisan::call('migrate:fresh', [
+            '--seed' => true, 
+            '--force' => true
+        ]);
+        return "SUKSES! Database Aiven telah terisi. Output: " . Artisan::output();
+    } catch (\Exception $e) {
+        return "GAGAL: " . $e->getMessage();
+    }
+});
 
 // ── Public / User routes (Bizland template) ───────────────────────────────────
 Route::get('/', [DiagnosisController::class, 'index'])->name('home');

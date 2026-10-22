@@ -87,37 +87,6 @@
   </div>
 </section>
 
-{{-- Team --}}
-<section style="background:var(--light-bg)">
-  <div class="container">
-    <div class="section-title text-center mb-5">
-      <h2>Tim Pengembang</h2>
-      <p>Penelitian dan pengembangan sistem pakar ini</p>
-    </div>
-    <div class="row g-4 justify-content-center">
-      @php
-      $team = [
-        ['name'=>'Geby Sabella Mariana Hutagalung','role'=>'Peneliti Utama','icon'=>'person-circle','color'=>'#106eea'],
-        ['name'=>'Hendryan Winata, S.Kom., M.Kom','role'=>'Pembimbing I','icon'=>'person-badge','color'=>'#2ecc71'],
-        ['name'=>'Dr. Rudi Gunawan, SE., M.Si','role'=>'Pembimbing II','icon'=>'person-badge','color'=>'#e84545'],
-      ];
-      @endphp
-      @foreach($team as $member)
-      <div class="col-lg-4 col-md-6">
-        <div class="feature-card text-center">
-          <div style="width:70px;height:70px;border-radius:50%;background:{{ $member['color'] }};display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;color:#fff">
-            <i class="bi bi-{{ $member['icon'] }}"></i>
-          </div>
-          <h6 style="font-family:'Raleway',sans-serif;font-weight:700;color:#1a1a2e">{{ $member['name'] }}</h6>
-          <p style="color:{{ $member['color'] }};font-size:14px;font-weight:600;margin:0">{{ $member['role'] }}</p>
-          <small class="text-muted">STMIK Triguna Dharma</small>
-        </div>
-      </div>
-      @endforeach
-    </div>
-  </div>
-</section>
-
 {{-- Research Methodology --}}
 <section style="background:#fff">
   <div class="container">
@@ -150,4 +119,44 @@
     </div>
   </div>
 </section>
+
+{{-- Team --}}
+<section style="background:var(--light-bg)">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h2>Sumber Referensi Pengembang</h2>
+      <p>Pengembangan sistem pakar ini berdasarkan jurnal yang diterbitkan oleh</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      @php
+      $team = [
+        ['name'=>'Geby Sabella Mariana Hutagalung','role'=>'Peneliti Utama','icon'=>'person-circle','color'=>'#106eea'],
+        ['name'=>'Hendryan Winata, S.Kom., M.Kom','role'=>'Pembimbing I','icon'=>'person-badge','color'=>'#2ecc71'],
+        ['name'=>'Dr. Rudi Gunawan, SE., M.Si','role'=>'Pembimbing II','icon'=>'person-badge','color'=>'#e84545'],
+      ];
+      @endphp
+      @foreach($team as $member)
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card text-center">
+          <div style="width:70px;height:70px;border-radius:50%;background:{{ $member['color'] }};display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;color:#fff">
+            <i class="bi bi-{{ $member['icon'] }}"></i>
+          </div>
+          <h6 style="font-family:'Raleway',sans-serif;font-weight:700;color:#1a1a2e">{{ $member['name'] }}</h6>
+          <p style="color:{{ $member['color'] }};font-size:14px;font-weight:600;margin:0">{{ $member['role'] }}</p>
+          <small class="text-muted">STMIK Triguna Dharma</small>
+        </div>
+      </div>
+      @endforeach
+    </div> 
+  </div>
+</section>
+
+<section style="background:#fff">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h2>Link Jurnal Referensi</h2>
+      <p>Link jurnal dapat diakses melalui <a href="https://garuda.kemdiktisaintek.go.id/documents/detail/5490205" target="_blank">Klik disini</a></p>
+    </div>
+  </div>
+
 @endsection
