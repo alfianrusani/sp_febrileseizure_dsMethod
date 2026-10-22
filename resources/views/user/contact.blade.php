@@ -31,7 +31,7 @@
             <div>
               <h6 style="font-family:'Raleway',sans-serif;font-weight:700;color:#1a1a2e;margin-bottom:4px">Alamat</h6>
               <p style="color:#777;font-size:14px;margin:0">
-                STMIK Triguna Dharma<br>Jl. AH. Nasution No.73, Medan<br>Sumatera Utara 20143
+                Universitas Teknologi Akba Makassar<br>Jl. Perintis Kemerdekaan Km. 9<br>Sulawesi Selatan 90245
               </p>
             </div>
           </div>
@@ -41,7 +41,7 @@
             </div>
             <div>
               <h6 style="font-family:'Raleway',sans-serif;font-weight:700;color:#1a1a2e;margin-bottom:4px">Telepon</h6>
-              <p style="color:#777;font-size:14px;margin:0">+62 812-3456-7890</p>
+              <p style="color:#777;font-size:14px;margin:0">+6281346712939</p>
             </div>
           </div>
           <div class="d-flex gap-3 align-items-start">
@@ -50,7 +50,7 @@
             </div>
             <div>
               <h6 style="font-family:'Raleway',sans-serif;font-weight:700;color:#1a1a2e;margin-bottom:4px">Email</h6>
-              <p style="color:#777;font-size:14px;margin:0">info@febrileseizure.id</p>
+              <p style="color:#777;font-size:14px;margin:0">rusanialfiandi109@gmail.com</p>
             </div>
           </div>
           <div class="d-flex gap-3 align-items-start">

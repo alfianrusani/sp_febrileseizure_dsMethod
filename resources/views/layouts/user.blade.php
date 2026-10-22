@@ -439,9 +439,9 @@
                 <div class="col-lg-3 col-md-6">
                     <h4>Informasi</h4>
                     <ul class="list-unstyled" style="font-size:14px">
-                        <li class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>Medan, Sumatera Utara</li>
-                        <li class="mb-2"><i class="bi bi-phone text-primary me-2"></i>+62 812-3456-7890</li>
-                        <li class="mb-2"><i class="bi bi-envelope text-primary me-2"></i>info@febrileseizure.id</li>
+                        <li class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>Makassar, Sulawesi Selatan</li>
+                        <li class="mb-2"><i class="bi bi-phone text-primary me-2"></i>+62 813-4671-2939</li>
+                        <li class="mb-2"><i class="bi bi-envelope text-primary me-2"></i>rusanialfiandi109@gmail.com</li>
                         <li class="mb-2"><i class="bi bi-clock text-primary me-2"></i>24 Jam / 7 Hari</li>
                     </ul>
                 </div>
@@ -458,8 +458,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; {{ date('Y') }} <strong>FebrileSeizure Expert System</strong> — Dikembangkan oleh STMIK
-                    Triguna Dharma</p>
+                <p>&copy; {{ date('Y') }} <strong>FebrileSeizure Expert System</strong> — Dikembangkan oleh ANDI ALFIAN RUSANI, Mahasiswa Jurusan Sistem Informasi, Universitas Teknologi Akba Makassar</p>
             </div>
         </div>
     </footer>
