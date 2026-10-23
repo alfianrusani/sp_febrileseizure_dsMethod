@@ -357,8 +357,8 @@
     <div id="topbar">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex gap-3">
-                <span><i class="bi bi-envelope me-1"></i> info@febrileseizure.id</span>
-                <span><i class="bi bi-phone me-1"></i> +62 812-3456-7890</span>
+                <span><i class="bi bi-envelope me-1"></i> rusanialfiandi109@gmail.com</span>
+                <span><i class="bi bi-phone me-1"></i> +62 813-4671-2939</span>
             </div>
             <div class="d-flex gap-3">
                 <a href="#"><i class="bi bi-facebook"></i></a>

@@ -299,8 +299,7 @@
                     <div class="row text-center align-items-center">
                         <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                             <p class="text-secondary mb-0">
-                                &copy; {{ date('Y') }} <strong>Febrile Seizure Expert System</strong> — STMIK
-                                Triguna Dharma
+                                &copy; {{ date('Y') }} <strong>Febrile Seizure Expert System</strong>
                             </p>
                         </div>
                     </div>
